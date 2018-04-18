@@ -1,0 +1,34 @@
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Cargo</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of lista">
+    <tr>
+      <td>{{item.id}}</td>
+      <td>{{item.nombre}}</td>
+      <td>{{item.cargo}}</td>
+      <td><button mat-button (click)="editar(item)">Editar</button></td>
+      <td><button mat-button (click)="eliminar(item)">Eliminar</button></td>
+    </tr>
+  </tbody>
+</table>
+<button mat-button (click)="nuevo()">NUEVO</button>
+
+<div *ngIf="campo">
+  <input type="text" name="id" placeholder="ID" [(ngModel)]="usuario.id">
+  <input type="text" name="nombre" placeholder="Nombre" [(ngModel)]="usuario.nombre">
+  <input type="text" name="cargo" placeholder="Cargo" [(ngModel)]="usuario.cargo">
+  <button mat-button (click)="crear()">Crear</button>
+</div>
+
+<div *ngIf="editar_campo">
+  <input type="text" name="id" placeholder="ID" [(ngModel)]="usuario.id">
+  <input type="text" name="nombre" placeholder="Nombre" [(ngModel)]="usuario.nombre">
+  <input type="text" name="cargo" placeholder="Cargo" [(ngModel)]="usuario.cargo">
+  <button mat-button (click)="editar_item()">Editar</button>
+</div>

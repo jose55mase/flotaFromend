@@ -1,0 +1,56 @@
+<div class="col-md-10">
+  <div class="col-md-10">
+    <div *ngIf="formulario_usuario" class="container-fluid">
+      <mat-toolbar>Crea</mat-toolbar>
+      <div class="col-md-6">
+        <br>
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="Nombre" [(ngModel)]="usuario.nombre" >
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="clave" [(ngModel)]="usuario.clave">
+          </mat-form-field>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary btn-block" (click)="crearUsuario()">Agregar conductor</button>
+    </div>
+  </div>
+
+  <div class="col-md-10">
+    <div *ngIf="ingresar_usuarios" class="container-fluid">
+      <mat-toolbar>Ingresa</mat-toolbar>
+      <div class="col-md-6">
+        <br>
+        <div class="example-container">
+          <mat-form-field>
+            <input id="nombre" matInput placeholder="Nombre" [(ngModel)]="usuario.nombre">
+          </mat-form-field>
+          <mat-form-field>
+            <input id="clave" matInput placeholder="clave" [(ngModel)]="usuario.clave">
+          </mat-form-field>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary btn-block" (click)="ingresarUsuario(clave,nombre)">Ingresar</button>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-2">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-description>
+          <mat-icon>accessibility</mat-icon>
+          Usuarios
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <button mat-raised-button color="primary" (click)="ingresar()">Crear</button>
+      <hr>
+      <!--<button mat-raised-button color="primary" (click)="ver()">Ingresar</button>-->
+      <hr>
+      <button mat-button (click)="openDialog()">Open dialog</button>
+      <button mat-raised-button color="primary" (click)="crear()">Veer</button>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

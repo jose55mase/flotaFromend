@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import * as jquery from 'jquery';
 import {HttpModule} from '@angular/http';
 import {CdkTableModule} from '@angular/cdk/table';
+import { HttpClientModule } from '@angular/common/http';
 import {
   MatExpansionModule,
   MatAutocompleteModule,
@@ -48,8 +49,13 @@ import {
 /* ----------------------------- COMPONENTES ----------------------------------------- */
 
 import { AppComponent } from './app.component';
-import { MenuComponent } from './vistasLayaut/menu/menu.component'
+import { MenuComponent } from './layout/menu/menu';
+import { UsuarioComponent } from './moduloUsuario/usuario.component';
+import { UsuarioServicios } from './servicios/usuarioServicios';
 
+
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { UsuarioService } from './usuarios/usuario.service';
 
 
 //import { UsuariosComponent } from './usuarios.component/usuarios.component';
@@ -64,7 +70,8 @@ import { MenuComponent } from './vistasLayaut/menu/menu.component'
 
 
 const routes: Routes = [  
-  //{ path: 'usuario', component: UsuariosComponent },
+  
+  { path : 'usuarios-rutas', component : UsuarioComponent }
   
 ];
 
@@ -74,7 +81,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
      AppComponent,
-     MenuComponent
+     MenuComponent,
+     UsuarioComponent,
+     UsuariosComponent
 
 
 
@@ -88,7 +97,9 @@ const routes: Routes = [
   ],
 
   imports: [
-    //RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+
     BrowserModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
@@ -132,7 +143,7 @@ const routes: Routes = [
 
   /* ///----------------------------- VENTAS MODALES ------------------------------------ */
 
-  providers: [  ],
+  providers: [ UsuarioServicios, UsuarioService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {  }

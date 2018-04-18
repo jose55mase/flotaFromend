@@ -1,0 +1,16 @@
+<div class="margen">
+</div>
+<div class="wrapper">
+  <div class=" contenedor " id="contenedor">
+    <span class="glyphicon glyphicon-user"></span>
+    <h4 class="text-center all-tittles" style="margin-bottom: 30px;">Inicio</h4>
+    <mat-form-field>
+      <input  type="text" name="usuario" matInput placeholder="Usuario">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input name="passwor" matInput placeholder="password" [type]="show ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hide = !show">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+    </mat-form-field>
+  </div>
+</div>

@@ -10,58 +10,63 @@
   </head>
   <body>
  
-<nav class="navbar navbar-inverse">
-  <menu></menu>
-</nav>
+<mat-toolbar>
+  Autobuces el poblaso laureles 
+  <ul class="nav navbar-nav navbar-right">
+      <li ><a mat-button> <mat-icon>account_circle</mat-icon>Usuario</a></li>
+      <li ><a mat-button> <mat-icon>supervisor_account</mat-icon>Tipo de usuario</a></li>
+      <li ><a mat-button> <mat-icon>exit_to_app</mat-icon> Cerrar sesion</a></li>
+  </ul>
+  
+</mat-toolbar>
+<button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
 
-<div class="login">  
-  <input class ="btn-block" type="text" placeholder="Ingrese Usuario" id="username" >  
-  <input class ="btn-block" type="password" placeholder="********" id="password">  
-  <br>
-  <button class ="btn-block" mat-raised-button> Ingresar</button>
-</div>
-<div class="shadow"></div>
+  <mat-tab-group>
+    <mat-tab label="Inicio">
+      Contenido del inicio 
+    </mat-tab>    
+    
+    <mat-tab label="Nosotros">
+      este sera el contenido del las tabla nosotros o demas contenido importante
+    </mat-tab>  
 
-<footer>
-    Footer
-</footer>
-<!--
-<div class="col-md-20">
-  <div class="col-md-2">
-    <div *ngIf="modulos">
-      
-       VISTAS 
+    <mat-tab label="Ayudas">
+      Ayuda con respecto a lo que ser necesita con el aplicativo
+    </mat-tab>  
 
-    </div>
-  </div>
+    <mat-tab label="Modulos">      
+        <menu></menu>        
+    </mat-tab>  
 
-  <div class="col-md-10">
-    <router-outlet></router-outlet>
-  </div>
-</div>
+    <mat-tab label="Menu">
+       
+    </mat-tab>  
+
+  </mat-tab-group>
+  
+
+<mat-menu #menu="matMenu">
+
+  <button mat-menu-item>
+    <mat-icon>dialpad</mat-icon>
+    <span>Redial</span>
+  </button>
+
+  <button mat-menu-item disabled>
+    <mat-icon>voicemail</mat-icon>
+    <span>Check voicemail</span>
+  </button>
+
+  <button mat-menu-item>
+    <mat-icon>notifications_off</mat-icon>
+    <span>Disable alerts</span>
+  </button>
+</mat-menu>
 
 
 
 
-<div class="espacion">
-  <div class="cuerpo">
-    <router-outlet></router-outlet>
-  </div>
-</div>
-
-
-
-
-<a href="#popup" class="popup-link">Ver mas información</a>
-
-<div class="modal-wrapper" id="popup">
-   <div class="popup-contenedor">
-      <h2>Titulo de la Modal</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor deleniti...
-
-      </p>
-      <a class="popup-cerrar" href="#">X</a>
-   </div>
-</div>
--->
+  </body>
+</html>  

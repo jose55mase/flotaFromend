@@ -1,0 +1,161 @@
+
+<div class="col-xs-10">
+    <div class="col-md-10">
+
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" >Usuarios</a>
+          </div>
+          <ul class="nav navbar-nav">            
+            <button mat-raised-button color="primary" (click)="crear()">Crear</button>           
+            <button mat-raised-button color="primary" (click)= "editar()">Editar</button>
+            <button mat-raised-button color="primary" (click)= "ver()">Ver</button>
+            <button mat-raised-button color="warn" (click)="eliminar()">Eliminar</button>               
+          </ul>
+        </div>
+      </nav> 
+    </div> 
+  
+  <div *ngIf="crear_conductor" class="container-fluid">
+    <mat-toolbar>Crea</mat-toolbar>
+    <div class="col-md-6">
+      <br>
+      <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Nombre" [(ngModel)]="conductor.nombre">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Apellido" [(ngModel)]="conductor.apellido">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Usuario" [(ngModel)]="conductor.usuario">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Clave" [(ngModel)]="conductor.clave">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="E-mail" [(ngModel)]="conductor.correo">
+      </mat-form-field>
+      
+      </div>
+    </div>
+  
+    <div class="col-md-6">
+        <br>
+        <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Cedula" [(ngModel)]="conductor.cedula">
+        </mat-form-field>  
+        <mat-form-field>
+          <input matInput placeholder="Celular" [(ngModel)]="conductor.celular">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Telefono" [(ngModel)]="conductor.telefono">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Direccion" [(ngModel)]="conductor.direccion">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Vehiculo" [(ngModel)]="conductor.vehiculo">
+        </mat-form-field>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary btn-block" (click)="crearUsuario()">Agregar conductor</button>
+  </div>
+  
+    <div *ngIf="editar_conductor" class="container-fluid">
+      <mat-toolbar>Editar</mat-toolbar>
+        <table class="table table-hover" >
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Correo</th>
+              <th>Cedula</th>
+              <th>Celular</th>              
+            <tr>
+          </thead>
+            <tbody *ngFor="let item of lista">
+              <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.apellido}}</td>
+                <td>{{item.correo}}</td>
+                <td>{{item.cedula}}</td>
+                <td>{{item.celular}}</td>
+                
+                <td><button mat-raised-button  class="btn btn-warning btn-block" (click)="editarUsuario(item)">Editar</button></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+  
+    <div *ngIf="ver_conductor" class="container-fluid">
+      <mat-toolbar>ver</mat-toolbar>
+        <table class="table table-hover" >
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Usuario</th>
+              <th>Clave</th>
+              <th>Correo</th>
+              <th>Cedula</th>
+              <th>Celular</th>
+              <th>Telefono</th>
+              <th>Direccion</th>
+              <th>Vehiculo</th>
+            <tr>
+          </thead>
+            <tbody *ngFor="let item of lista">
+              <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.apellido}}</td>
+                <td>{{item.usuarios}}</td>
+                <td>{{item.clave}}</td>
+                <td>{{item.correo}}</td>
+                <td>{{item.cedula}}</td>
+                <td>{{item.celular}}</td>
+                <td>{{item.telefono}}</td>
+                <td>{{item.direccion}}</td>
+                <td>{{item.vehiculo}}</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+  
+    <div *ngIf="eliminar_conductor" class="container-fluid">
+      <mat-toolbar>Eliminar</mat-toolbar>
+        <table class="table table-hover" >
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Usuario</th>
+              <th>Correo</th>
+              <th>Cedula</th>
+              <th>Celular</th>
+              
+            <tr>
+          </thead>
+            <tbody *ngFor="let item of lista">
+              <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.usuario}}</td>
+                <td>{{item.correo}}</td>
+                <td>{{item.cedula}}</td>
+                <td>{{item.celular}}</td>
+                
+                <td><button mat-raised-button color="warn" class="btn btn-block">Eliminar</button></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    
+  
+</div>  
